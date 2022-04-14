@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login now</title>
+    <script src="https://kit.fontawesome.com/eb5100ca45.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'signup.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'index.css' %}" />-->
+  </head>
+  <body>
+    <nav >
+      <div class="logo">
+        <img
+          id="think"
+          src="{% static 'images/thinkbig.jpg' %}"
+          alt="ThinkBig"
+        />
+
+        <img
+          style="border-radius: 40px"
+          id="icon"
+          src="{% static 'images\night_mode.png' %}"
+          class="night"
+        />
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn"><i id="fonts" class="fas  fa-bars"></i></label>
+        
+        <ul>
+         
+        {% if user.is_authenticated %}
+      
+                 
+       <li><a href="logout"><i style="border-radius: 50px;  color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-user-minus"></i>Logout</a></li>
+        <li><a href="mailto:cbnlinkschimexbn@gmail.com"><i style="border-radius: 50px; color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-user"></i>Contacts Us</a></li>
+        <li><a id="active" href="/"><i style=" border-radius: 50px; color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-home"></i>Home </a></li>
+       
+        {% else %}
+        <li><a href="signup"><i style="border-radius: 50px; color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-user-plus"></i>Join Us</a></li>
+     
+        <li><a href="mailto:cbnlinkschimexbn@gmail.com"><i style="border-radius: 50px;  color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-circle-question"></i>Contacts Us</a></li>
+        <li> <a href="#"><i style="border-radius: 50px; color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-cart-shopping"></i>Visit Shop</a></li>
+
+        <li><a id="active" href="/"><i style=" border-radius: 50px; color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-home"></i>Home </a></li>
+      </ul>
+        {% endif %}
+      </div>
+    </nav>
+    <form action="login" method="POST" class="signup">
+      {% csrf_token %}
+
+      <center style="margin-top: 30px" class="reg">
+        {% for message in messages %}
+        <h5 style="font-style:italic;color:orangered; font-weight: strong; letter-spacing:0.5em;"> {{message}}</h5>
+          {% endfor %}
+        <p>
+          <input
+          required
+            class="textbox"
+            id="username"
+            name="username"
+            type="username"
+            placeholder="Username"
+          />
+          
+          <i style="     color: rgb(3, 3, 22);
+          padding: 5px;
+          position: absolute;
+        cursor:text;
+          left: 240px;
+          right: 3px; font-size:10px;" class="fas fa-user"></i>
+        
+        </p>
+         
+        <p>
+          <input required
+            class="textbox"
+            id="pass1"
+            name="pass1"
+            type="password"
+            placeholder="Password"
+          />
+         
+          <i onclick="toggle()" style=" display:none;  color: rgb(3, 3, 22);
+          padding: 5px;
+          position: absolute;
+          cursor:pointer;
+          left: 244px;
+          right: 3px; font-size:10px;" id="eye" class="fas fa-eye"></i>  <i style="     color: rgb(3, 3, 22);
+          padding: 5px;
+          position: absolute;
+          cursor:pointer;
+          left: 244px; 
+          right: 3px; font-size:10px;" id="eyes" class="fas fa-eye-slash" onclick="toggle()"></i>
+        
+        </p>
+        <p><input type="submit" value="Login" class="btn" /></p>
+        
+        
+        <a style=" font-style:italic; font-size:strong;" href="signup"><h4>Or Signup+</h4></a>
+
+        <p> <div style="color:orangered; width:fit-content;"> Or Login With <h3 class="line"></h3></div> </p>
+        <p><span id="socials">
+          <a href="/accounts/facebook/login/?process=login" class="facebook"><i style="color:#fff; padding:5px;" class="fab fa-facebook"></i>Facebook</a>
+          <a class="google" href="accounts/google/login/?process=login" ><i style="color:#fff; padding:5px;" class="fab fa-google"></i>Google</a>
+            <a href="#" class="twiter"><i  style="color:#fff; padding:5px;" class="fab fa-twitter"></i>Twiter</a
+              ></span></p>
+      </center>
+    </form>
+    <script type="text/javascript">
+      function toggle(){
+      var i = document.getElementById("pass1");
+      var x = document.getElementById("eye");
+      var z = document.getElementById("eyes");
+      if (i.type==='password'){
+        i.type ="text";
+        
+        x.style.color ="blue";
+        x.style.display = "inline";
+      
+       z.style.display = "none";
+        
+      }
+      else if (i.type ==='text'){
+        i.type = "password";
+        x.style.color = "black";
+        z.type.display = "inline";
+        x.type.display = "none";
+
+      }
+      else{
+        i.type ="text";
+        
+       x.style.color ="black";
+        x.style.display = "inline";
+        z.style.display = "none";
+      }
+    }
+    </script>
+    
+</body>
+    <script>
+        var icon = document.getElementById("icon");
+        icon.onclick = function () {
+          document.body.classList.toggle("darktheme");
+          if (document.body.classList.contains("darktheme")) {
+            icon.src = "static/images/night_mode.png";
+          } else {
+            icon.src = "static/images/light_mode.png";
+          }
+        };
+      </script>
+      
+    
+</html>

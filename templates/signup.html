@@ -1,0 +1,249 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup now</title>
+    <link rel="stylesheet" href="{% static 'signup.css' %}" />
+    <script src="https://kit.fontawesome.com/eb5100ca45.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome-webfont3e6e.ttf' %}">
+    <link rel="stylesheet" href="{% static 'fonts/mfglabsiconset-webfont.ttf' %}">
+    <link rel="stylesheet" href="{% static 'fonts/mfglabsiconset-webfont.woff' %}">
+    <link rel="stylesheet" href="{% static 'fonts/Oswald-Medium.ttf' %}">
+    <link rel="stylesheet" href="{% static 'fonts/Oswald-Regular.ttf' %}">
+ 
+
+  </head>
+  <body>
+    <nav >
+      <div class="logo">
+        <img
+          id="think"
+          src="{% static 'images/thinkbig.jpg' %}"
+          alt="ThinkBig"
+        />
+
+        <img
+          style="border-radius: 40px"
+          id="icon"
+          src="{% static 'images\night_mode.png' %}"
+          class="night"
+        />
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn"><i id="fonts" class="fas  fa-bars"></i></label>
+        
+        <ul>
+         
+        {% if user.is_authenticated %}
+      
+        <li><a href="#"><i style="border-radius: 50px;  color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-cart-shopping"></i>Visit Shop</a></li>
+       <li><a href="logout"><i style="border-radius: 50px;  color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-user-minus"></i>Logout</a></li>
+        <li><a href="mailto:cbnlinkschimexbn@gmail.com"><i style="border-radius: 50px; color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-user"></i>Contacts Us</a></li>
+        <li><a id="active" href="/"><i style=" border-radius: 50px; color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-home"></i>Home </a></li>
+       
+        {% else %}
+        <li><a href="#"><i style="border-radius: 50px; font-weight:bold; color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-cart-shopping"></i>Visit Shop</a></li>
+     
+        <li><a href="mailto:cbnlinkschimexbn@gmail.com"><i style="border-radius: 50px;  color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-circle-question"></i>Contacts Us</a></li>
+        <li> <a href="login"><i style="border-radius: 50px; color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-user-plus"></i>Login</a></li>
+
+        <li><a id="active" href="/"><i style=" border-radius: 50px; color:rgb(195 10 112); padding-right:4px;" class="fa-solid fa-home"></i>Home </a></li>
+      </ul>
+        {% endif %}
+      </div>
+    </nav>
+    <form action="signup" method="POST" class="signup">
+      {% csrf_token %}
+
+      <center class="reg">
+        {% for message in messages %} {{message}} {% endfor %}
+        <p></p>
+        <p>
+          <input 
+            class="textbox"
+            id="fname"
+            name="fname"
+            type="text"
+            required
+            placeholder="First Name"
+          />
+          <i style="     color: rgb(4, 4, 22);
+          padding: 5px;
+          position: absolute;
+          font-size:10px;
+          left: 240px;
+          right: 3px;" class="fas fa-user"></i>
+        </p>
+        
+        <p>
+          <input
+          required
+            class="textbox"
+            id="lname"
+            name="lname"
+            type="text"
+            placeholder="Last Name"
+          />
+          <i style="     color: rgb(10, 10, 36);
+          padding: 5px;
+          position: absolute;
+          font-size:10px;
+          left: 240px;
+          right: 3px;" class="fas fa-user"></i>
+        </p>
+        
+        <p>
+          <input
+          required
+            class="textbox"
+            id="username"
+            name="username"
+            type="username"
+            placeholder="Username"
+          />
+          <i style="     color: rgb(7, 7, 27);
+          padding: 5px;
+          position: absolute;
+          font-size:10px;
+          left: 240px;
+          right: 3px;" class="fas fa-user"></i>
+        </p>
+
+        <p>
+          <input
+          required
+            class="textbox"
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email"
+          />
+          <i style="     color: rgb(3, 3, 22);
+          padding: 5px;
+          position: absolute;
+         
+          left: 240px;
+          right: 3px; font-size:10px;" class="fas fa-envelope"></i>
+        </p>
+        
+        <p>
+         
+          <input
+          required
+            class="textbox"
+            id="pass1"
+            name="pass1"
+            type="password"
+            placeholder="Password"
+          /> 
+          <i style="  font-size:10px;   color: black;
+          padding: 5px;
+          position: absolute;
+          cursor:pointer;
+          
+          left: 240px;
+          right: 3px;" id="show1"  onclick="toggle()" class="fas fa-eye"></i>  <i id="show1" onclick="toggle()" style="  font-size:10px;   color: black;
+          padding: 5px;
+          position: absolute;
+          cursor:pointer;
+          display:none;
+          left: 240px;
+          right: 3px;"  class="fas fa-eye-slash"></i>
+          
+          
+        </p>
+        <p>
+          <input
+          required
+            class="textbox"
+            id="pass2"
+            name="pass2"
+            type="password"
+            placeholder="Confirm password"
+          /> 
+           <i style="  font-size:10px; cursor:pointer;   color: rgb(6, 6, 51);
+          padding: 5px;
+          position: absolute;
+          font-size:10px;
+         
+          left: 240px;
+          right: 3px;" class="fas fa-eye" id="show2" onclick="toggle()"></i>
+           <i style="  font-size:10px;   color: black;
+           padding: 5px;
+           position: absolute;
+           cursor:pointer;
+         
+           left: 240px;
+           right: 3px;"  class="fas fa-eye" id="show1" onclick="toggle()"></i>
+           
+          
+        </p>
+
+        <p><input type="submit" value="Join Us" class="btn" /></p>
+        <p> <div style="color:orangered; width:fit-content;"> Or Login With <h3 class="line"></h3></div> </p>
+        <p><span id="socials">
+          <a href="/accounts/facebook/login/?process=login" class="facebook"><i style="color:#fff; padding:5px;" class="fab fa-facebook"></i>Facebook</a>
+           <a class="google" href="accounts/google/login/?process=login" ><i style="color:#fff; padding:5px;" class="fab fa-google"></i>Google</a>
+            <a href="#" class="twiter"><i style="color:#fff; padding:5px;" class="fab fa-twitter"></i>Twiter</a>
+          </span></p>
+     
+      </center>
+    </form>
+    <script>
+      var icon = document.getElementById("icon");
+      icon.onclick = function () {
+        document.body.classList.toggle("darktheme");
+        if (document.body.classList.contains("darktheme")) {
+          icon.src = "static/images/night_mode.png";
+        } else {
+          icon.src = "static/images/light_mode.png";
+        }
+      };
+    </script>
+    
+    <script type="text/javascript">
+      function toggle(){
+      var p = document.getElementById("pass2");
+      var i = document.getElementById("pass1");
+      var x = document.getElementById("show1");
+      var z = document.getElementById("show2");
+      if (i.type==='password'){
+        i.type ="text";
+  
+        x.style.color = "blue";
+        z.style.display = "none";
+        x.style.display = "inline";
+      }
+        
+      else{
+      
+      i.type = "password";
+    
+      z.style.display = "none";
+      x.style.display = "inline";
+      x.style.color = "blue";
+    }
+        
+      
+      if(p.type === 'password'){
+        p.type = "text";
+        x.style.color = "blue";
+        z.style.display= "none";
+        x.style.display = "inline";
+
+      }
+      else{
+        p.type = "password";
+        x.style.display = "inline";
+        x.style.color = "black"
+        z.style.display = "inline";
+
+      }
+    }
+    
+
+    </script>
+  </body>
+</html>

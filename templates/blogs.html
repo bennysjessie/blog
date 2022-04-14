@@ -1,0 +1,70 @@
+
+{% extends 'blogid.html' %}
+{% load static %}
+{% block content %}
+<main class="main-body">
+  <div>
+    <a  class="btn btn-outline-dark" href="/">&#x2190;Go Back</a>
+  </div>
+  {%  for message in messages %}
+
+ <div class="mess">  <p> {{message}}</p></div>
+  {% endfor %}
+  <div class="con">
+    <center>
+   <a style="text-decoration:none;" href=""><p  class="blog_name">{{blog.blog_name}}</p></a>
+   <a href=""><img style="display:flex;" class="bimage" src="{{ blog.first_image.url }}" alt="{{blogs.blog_name}}"></a>
+  </center>
+    <h4 style="text-decoration:underline"><em> {{blog.blog_date}}</em></h4>
+     <div class="content"><p> {{blog.blog_content}}</p></div>
+  
+  
+  </div>
+  <br>
+  <br>
+  
+<style>
+.bot{
+  display: block;
+    margin-top: 10px;
+
+}
+.name{
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+.block{
+  border:1px solid #ccc;
+  background:#ccc;
+  width:fit-content;
+
+}
+
+</style>
+<div class="container">
+  <div><h5 class="bot btn btn-success">Total comments:{{blog.comments.count}}</h5></div>
+  {% if not blog.comments.all %}
+ 
+   <div> No Comments Yet... </div>
+      {% else %}
+   {% for comment in blog.comments.all reversed %}
+   
+   <div class="name"><strong>{{comment.name}}</strong> - Created on {{comment.created}}</div>
+   <div class="block">{{comment.body}}</div>
+   
+   <br>
+   
+
+   {% endfor %}
+   
+   {% endif %}
+   <br>
+   <a class=" bot btn btn-primary"href="{% url 'addcomment' blog.pk %}">Add Comment Now</a>
+
+
+   
+  </div>
+  
+  </main>
+ 
+{% endblock content %}

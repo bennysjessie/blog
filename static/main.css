@@ -1,0 +1,113 @@
+.navbar-brand{
+	color:#ffff !important;
+}
+    
+    
+.bg-light{
+        background: rgb(207, 90, 47) !important;
+        color:#fff !important;
+    }
+
+
+#cart-icon{
+        margin-right:15px;
+        display:inline-block;
+        width:25px;
+        
+    }
+
+
+    .nav-link{
+        color:#fff !important;
+    }
+    .pics p{
+        display:flex;
+        width:-webkit-fill-available;
+        background: gray !important;
+    }
+ p a:hover{
+        background:blue;
+        color:blue;
+    }
+    /*for images */
+    .bimage{
+        width:fit-content;
+
+    }
+    @media(max-width:700px){
+        .bimage{
+            width:-webkit-fill-available;
+        
+        }
+    }
+    
+/* for footer */
+#container {
+    width:100%;
+      background: hsl(86deg 24% 8%);
+      box-sizing: border-box;
+      margin-top: 20px;
+      border-top: 3px solid rgb(26, 23, 26);
+      text-align:center;
+    
+    }
+    .column {
+      text-align: start;
+      display: inline-block;
+      padding: 10px;
+    }
+    .column h4 {
+      font-family: sans-serif;
+      color: rgb(9, 255, 0);
+      font-size: 25px;
+      text-align:start;
+      text-transform: capitalize;
+    }
+    .column ul {
+      
+      list-style: none;
+      padding-right: 10px;
+    }
+    .column ul li {
+      color: white;
+      text-transform: capitalize;
+      font-size: medium;
+    
+     
+    }
+    .column ul li a {
+      text-decoration: none;
+      color: white;
+    }
+    .column ul li a:hover {
+      padding-right:10px;
+      padding-left:10px;
+      color:#fff;
+      background: darkolivegreen;
+      border-radius: 30px;
+      font-size: 15px;
+    }
+    /* end of footer */
+    .con{
+        margin:15px;
+    }
+    #bar{
+        padding:10px;
+        display:inline-block;
+        box-sizing: border-box;
+
+    }
+    #bar a{
+      
+      flex:2;
+      color: #fff;
+       
+    }
+    hr{
+      
+    margin-right: 20px;
+    padding: 2;
+    margin-left: 20px;
+    background: #28a745;
+}
+ 

@@ -1,0 +1,161 @@
+
+{% extends 'main.html' %}
+
+{% load static %}
+{% block content %}
+
+    
+{%  for message in messages %}
+
+<strong style="color:forestgreen"> {{message}}</strong>
+  {% endfor %}
+<div class="row">
+<div class="col">
+
+
+<div class="blog_body">
+{% for blogs in blog reversed %}
+<div class="container">
+  
+  <center>
+ <a href="/blogs/{{blogs.id}}"><p  class="blog_name">{{blogs.blog_name}}</p></a>
+ <a href=""><img style="display:flex;" class="bimage" src="{{ blogs.first_image.url }}" alt="{{blogs.blog_name}}"></a>
+</center>
+
+  <div style="margin-top:10px;
+   text-decoration: underline;">{{blogs.blog_date}}</div>
+   <div class="content"><p> {{blogs.blog_content|truncatewords:30}}</p></div>
+   <a class="btn btn-outline-primary" href="/blogs/{{blogs.id}}">Read More </a>
+   <br>
+  
+   
+  </div>
+{% endfor %}
+</div>
+</div>
+
+</div>
+<div id="about us" class="container">
+  <em>This site is purely for coding and teaching people how to avoid being hacked, The Write up help people to really excel in thier programming life</em>
+</div>
+<div id="About bench" class="container">
+benchatronics is sub-domain of <em> codewithbenny.com </em> Which is purely for Artificial Intelligence. update will be sent to users aa we update our page
+</div>
+<div class="container">
+</div>
+<footer>
+  <div id="container">
+    <div class="column">
+      <h4>Products</h4>
+      <div class="row">
+        <ul>
+          <li><a href="#">Apps</a></li>
+          <li><a href="#">sites</a></li>
+          <li> <a href="#">Blogs</a></li>
+          <li> <a href="#"> Lifestyle</a></li>
+          <li> <a href="#"> Shop</li></a>
+        </ul>
+      </div>
+    </div>
+    <div class="column">
+      <h4 id="Oursite">Categories</h4>
+      <div class="row">
+        <ul>
+          <li> <a href="#">Hacking</a> </li>
+          <li><a href="#">benchatronics</a></li>
+          <li> <a href="#">blog</a></li>
+          <li> <a href="#"> School Blog</a></li>
+          <li><a href="#"> The Insider</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="column">
+      <h4>COURSE</h4>
+      <div class="row">
+        <ul>
+          <li> <a href="#"> Html</li></a>
+          <li><a href="#"> Java scripts</a></li>
+          <li> <a href="#"> Css</a></li>
+          <li> <a href="#"> Maths</a></li>
+          <li> <a href="#"> Kotlin</a></li>
+          
+        
+        </ul>
+      </div>
+    </div>
+    <div class="column">
+      <h4>Site</h4>
+      <div class="row">
+        <ul>
+          <li> <a href="#about us">About Us</a></li>
+          <li><a href="">About Page</a></li>
+          <li><a href="#About bench">Bnchatronics</a></li>
+          <li><a href="">knowledge</a></li>
+          <li><a href="">Tech</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="column">
+      <h4>offers</h4>
+      <div class="row">
+        <ul>
+          <li> <a href="">ourteck</a></li>
+          <li><a href="">about mechatronics</a></li>
+          <li><a href="">products</a></li>
+          <li><a href="">knowledge</a></li>
+          <li><a href="">Tech</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="column">
+      <h4>offers</h4>
+      <div class="row">
+        <ul>
+          <li> <a href="">ourteck</a></li>
+          <li><a href="">about mechatronics</a></li>
+          <li><a href="">products</a></li>
+          <li><a href="">knowledge</a></li>
+          <li><a href="">Tech</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    
+   
+    <div class="column">
+      <h4>offers</h4>
+      <div class="row">
+        <ul>
+          <li> <a href="">ourteck</a></li>
+          <li><a href="">about mechatronics</a></li>
+          <li><a href="">products</a></li>
+          <li><a href="">knowledge</a></li>
+          <li><a href="">Tech</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <hr>
+   
+    <navbar  id="bar">
+      
+    <a href="#">Designed and coded by the Benchatronics&NonBreakingSpace;&copy;2022</a> 
+    <div class="line"></div>
+    <a href="thinkbig">About&NonBreakingSpace;Benchatronics</a>
+    <a href="#">&NonBreakingSpace;and&NonBreakingSpace;</a>
+    <a href="#Oursite">About&NonBreakingSpace;Page</a>
+    <a href="#"></a>
+    <a href="#"></a>
+    <a href="#"></a>
+    <a href="#"></a>
+    <a href="#"></a>
+      
+     
+   
+      
+      </navbar> 
+      {% endblock %}

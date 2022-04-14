@@ -1,0 +1,52 @@
+
+{% extends 'blogid.html' %}
+{% load static %}
+{% block content %}
+<main class="main-body">
+  <style>
+    form p{
+    
+      position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    
+}
+p::placeholder{
+  display:block;
+}
+
+  </style>
+  <div>
+    <a  class="btn btn-outline-dark" href="/">&#x2190;Go Back</a>
+  </div>
+  {%  for message in messages %}
+
+ <div class="mess">  <p> {{message}}</p></div>
+  {% endfor %}
+  <div class="con">
+    
+        Add comment
+<div class="container m-2">
+    <form class="comment" method="post" action="">
+
+        {% csrf_token %}
+        {{form.as_p}}
+        <div><em>Your Email address will NEVER be Published</em></div>
+<br>
+        <input type="submit" name="Submit">
+    </form>
+
+</div>
+  
+   
+
+  </main>
+ 
+{% endblock content %}
