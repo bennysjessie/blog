@@ -1,1 +1,32 @@
-page not found, try <a href="{% url 'index' %}">home</a>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oops something's wrong?</title>
+</head>
+<body>
+
+<style>
+body{
+    background:#ccc;
+    margin-top:10%;
+}
+.errorp{
+    font-family: Tahoma;
+    font-size: large;
+
+}
+</style>
+ <center>
+<div class="errorp"> Oops it seems the page you are looking for doesn't exits
+ <p> If you think that something else should be here,<a href="mailto:cbnlinkschimexbn@gmail.com"target="_blank">Contact Us Now</a></p>
+ <p>Definitely try reconnecting or check your network connectivity</p>
+<p> Or navigate back to <a href="{% url 'index' %}">home</a></p>
+
+</div>
+</center>
+</body>
+</html>

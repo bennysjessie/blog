@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-!9o!f0l=9hig)end1!+67s8614!+%8oi#edvjple9%mmc0rr+y
 DEBUG = False
 
 ALLOWED_HOSTS = ['benchatronics.herokuapp.com','127.0.0.1']
+#ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -121,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
@@ -130,4 +131,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+MEDIA_ROOT = 'uploads'
+MEDIA_URL = '/files/'
 
